@@ -1,0 +1,303 @@
+$primary-color: #4facfe;
+$secondary-color: #28a745;
+$background-color: #f0f0f093;
+$font-family: Arial, sans-serif;
+$primary-background: linear-gradient(to bottom right, #4facfec4, #007fe189);
+$primary-font-size: 20px;
+
+$small-screen: 600px;
+$medium-screen: 900px;
+$large-screen: 1200px;
+
+$card-color: linear-gradient(to bottom right, #21212127, #0d5fac27);
+$app-background: linear-gradient(to bottom right, #1476ccda, #00befea4);
+
+// // Weather colors
+// $clear-color: #87CEEB;
+// $clouds-color: #B0C4DE;
+// $rain-color: #778899;
+// $thunderstorm-color: #2F4F4F;
+// $snow-color: #FFFAFA;
+// $fog-color: #696969;
+
+// Mixins
+@mixin box-shadow($color, $x, $y, $blur) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin hover-effect($color, $scale: 1.05, $duration: 0.2s) {
+  transition: transform $duration, background-color $duration, box-shadow $duration;
+
+  &:hover {
+    filter: brightness(1.05);
+    transform: scale($scale);
+    @include box-shadow(rgba(0, 0, 0, 0.2), 0, 8px, 16px);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    @include box-shadow(rgba(0, 0, 0, 0.15), 0, 6px, 12px);
+  }
+}
+
+body {
+  min-height: 100vh;
+  background: $app-background;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+.App {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-areas:
+    'navbar navbar navbar'
+    'main main main'
+    'cards cards cards';
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.5s ease;
+  width: 100%;
+
+  @include respond-to($medium-screen) {
+    grid-template-areas:
+      'navbar navbar'
+      'main main'
+      'cards cards';
+  }
+
+  @include respond-to($small-screen) {
+    grid-template-areas:
+      'navbar'
+      'main'
+      'cards';
+    gap: 1rem;
+  }
+}
+
+.navbar {
+  grid-area: navbar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include respond-to($small-screen) {
+    gap: 0.5rem;
+  }
+}
+
+.toggle-button {
+  background: $card-color;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @include box-shadow(rgba(0, 0, 0, 0.12), 0px, 1px, 3px);
+  @include hover-effect($primary-color);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 1rem;
+  @include box-shadow(rgba(0, 0, 0, 0.12), 0px, 1px, 3px);
+
+  @include respond-to($small-screen) {
+    flex-direction: column;
+  }
+}
+
+.search-input {
+  padding: 0.5rem;
+  padding-left: 2.2rem;
+  border-radius: 1rem;
+  border: 1px solid #cccccc07;
+  font-size: 1rem;
+  width: 200px;
+  background: $card-color;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+
+.search-button {
+  background-color: $card-color;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  @include hover-effect($primary-color);
+
+  @include respond-to($small-screen) {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.weather-card {
+  grid-area: main;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $card-color;
+  border-radius: 2rem;
+  border-color: white;
+  @include box-shadow(rgba(0, 0, 0, 0.1), 0, 4px, 6px);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  position: relative;
+  cursor: pointer;
+  @include hover-effect($primary-background, 1.05, 0.3s);
+
+  @include respond-to($small-screen) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.weather-info {
+  padding-right: 30%;
+}
+
+.weather-icon img {
+  width: 15rem;
+  height: 15rem;
+}
+
+.temperature {
+  font-size: 4rem;
+  margin-top: 0.5rem;
+  position: relative;
+  color: white;
+
+  span {
+    position: absolute;
+    top: 0;
+    font-size: 0.5em;
+  }
+}
+
+.description {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+.date {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.city {
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.location-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 20px;
+
+  img {
+    height: 2.5rem;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+
+.weather-cards {
+  grid-area: cards;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @include respond-to($medium-screen) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.weather-card-forecast {
+  background: $card-color;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  flex: 1;
+  min-width: 11rem;
+  min-height: 16rem;
+  cursor: pointer;
+  text-align: center;
+  @include box-shadow(rgba(0, 0, 0, 0.1), 0, 4px, 6px);
+  @include hover-effect(#4facfe, 1.05, 0.3s);
+
+  @include respond-to($small-screen) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .date {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .weather-icon-card {
+    margin-bottom: 0.5rem;
+
+    img {
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+
+  .temperature {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+
+    span {
+      font-size: 1rem;
+    }
+  }
+}
+
+.loading {
+  color: white;
+}
