@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.60c0a740.css",
+    "main.js": "/static/js/main.176812d9.js",
+    "static/media/Location.png": "/static/media/Location.0b4271f545e2432a6585.png",
+    "static/media/cloudSnowflake.svg": "/static/media/cloudSnowflake.cf71b48f6b1dcdfcfdf34f8b1897f9be.svg",
+    "static/media/snowflake.svg": "/static/media/snowflake.34a11c1269e5d2bd0988dfe2fb8e91bf.svg",
+    "static/media/cloudMoonRaining.svg": "/static/media/cloudMoonRaining.a08488f459bfc5a1640206b6b946726b.svg",
+    "static/media/cloudSunRaining.svg": "/static/media/cloudSunRaining.7ee353d9d0d55e3ecbbd6aa9af68b260.svg",
+    "static/media/fog.svg": "/static/media/fog.8152f8c1b5fc7a8c157769fe24582bc7.svg",
+    "static/media/cloudRaining.svg": "/static/media/cloudRaining.9f60732da01c35ac0f6dbad0708148b9.svg",
+    "static/media/cloudFog.svg": "/static/media/cloudFog.12580af457bbdb8a8ed6779ed2e4dfc5.svg",
+    "static/media/windy.svg": "/static/media/windy.f9f8f588a479b6df853d0e729f93c98a.svg",
+    "index.html": "/index.html",
+    "static/media/cloudSnowing.svg": "/static/media/cloudSnowing.212a62c821bf5c1f45843e32be6aaf0b.svg",
+    "static/media/cloudDrip.svg": "/static/media/cloudDrip.9e04281bee9c1123ce6831ba90262632.svg",
+    "static/media/cloudMoon.svg": "/static/media/cloudMoon.b7cec79e5d13d786fa774dd972b63393.svg",
+    "static/media/cloudLightning.svg": "/static/media/cloudLightning.ef647eea6b37463a4894da10697aa82c.svg",
+    "static/media/cloudySunny.svg": "/static/media/cloudySunny.b02014c0192c52a2b0989e1005c06933.svg",
+    "static/media/moon.svg": "/static/media/moon.9534fede28619283cda7c22e5cb34dc6.svg",
+    "static/media/lightning.svg": "/static/media/lightning.9ed941b6f87899eed9460e2f5a9b6dfb.svg",
+    "static/media/cloudy.svg": "/static/media/cloudy.3d82b4cbf171a292738b6e8634df75b3.svg",
+    "static/media/sunny.svg": "/static/media/sunny.c8b63169ee96cade77ac9a02258d7607.svg",
+    "main.60c0a740.css.map": "/static/css/main.60c0a740.css.map",
+    "main.176812d9.js.map": "/static/js/main.176812d9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.60c0a740.css",
+    "static/js/main.176812d9.js"
+  ]
+}
