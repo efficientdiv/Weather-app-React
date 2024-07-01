@@ -66,6 +66,8 @@ const App = () => {
         const data = await response.json();
         setWeatherData(data);
         setCurrentCity(data.name);
+        setIsCelsius(unit === 'metric');
+
       } catch (error) {
         console.error('Error fetching the weather data:', error);
       }
@@ -106,7 +108,6 @@ const App = () => {
 
   const toggleUnit = () => {
     const newUnit = isCelsius ? 'imperial' : 'metric';
-    setIsCelsius(!isCelsius);
     setUnit(newUnit);
     localStorage.setItem('unit', newUnit);
   };
